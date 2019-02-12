@@ -30,8 +30,10 @@ Confirm zookeeper is working using command
     confluentinc/cp-kafka:5.1.0
  Confirm Kafka is running
   - docker logs kafka
-   docker run -v /Users:/Users --net=confluent -v /Users:/work work-stn-kafka:v0.2 python /Users/nazeels/python_scripts/kafka-producer.py
-    docker run -v /Users:/Users --net=confluent -v /Users:/work work-stn-kafka:v0.2 python /Users/nazeels/python_scripts/kafka-consumer.py
+ Run the Consumer application, this will run continuously until terminated using CTRL + C
+  - docker run -v /Users:/Users --net=confluent -v /Users:/work work-stn-kafka:v0.2 python /Users/nazeels/python_scripts/kafka-producer.py
+ Run following command to drop a few message to Kafka
+  - docker run -v /Users:/Users --net=confluent -v /Users:/work work-stn-kafka:v0.2 python /Users/nazeels/python_scripts/kafka-consumer.py
  
 
 
