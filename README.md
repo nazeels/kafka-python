@@ -8,6 +8,9 @@ Aim of Sample:
 
 How to run sample:
 - Expecting you have Docker engine in your development machine
+- Build a linux image with kafka-python library to run our consumer and producer code
+- Run docker build command as follows
+  - docker build .
 - Run Zookeeper with command
   - docker run \
     --net=confluent \
