@@ -2,6 +2,8 @@
 simple kafka pub-sub using python
 
 Aim of Sample:
+Run kafka instance with Zookeeper and send message to a topic and continously listen
+
 - Dockerfile: creates a simple Linux machine with Python and kafka-python library installed
 - kafka-producer.py: sent simple text message to Topic "foo"
 - kafka-consumer.py: receives message from Topic "foo" and print it
