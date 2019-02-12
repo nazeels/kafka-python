@@ -2,7 +2,7 @@
 simple kafka pub-sub using python
 
 Aim of Sample:
-Run kafka instance with Zookeeper and send message to a topic and continously listen
+Run kafka instance with Zookeeper and send message to a topic and continuously listen
 
 - Dockerfile: creates a simple Linux machine with Python and kafka-python library installed
 - kafka-producer.py: sent simple text message to Topic "foo"
@@ -19,6 +19,7 @@ How to run sample:
     --rm confluentinc/cp-kafka:5.1.0 \
     kafka-topics --create --topic foo --partitions 1 --replication-factor 1 \
     --if-not-exists --zookeeper zookeeper:2181
+    
 Confirm zookeeper is working using command
   - docker logs zookeeper
   
@@ -30,11 +31,14 @@ Confirm zookeeper is working using command
     -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092 \
     -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 \
     confluentinc/cp-kafka:5.1.0
+    
  Confirm Kafka is running
   - docker logs kafka
+  
  Run the Consumer application, this will run continuously until terminated using CTRL + C
-  - docker run -v /Users:/Users --net=confluent -v /Users:/work work-stn-kafka:v0.2 python /Users/nazeels/python_scripts/kafka-producer.py
- Run following command to drop a few message to Kafka
+  - docker run -v /Users:/Users --net=confluent -v /Users:/work work-stn-kafka:v0.2 python /Users/nazeels/python_scripts/kafka-consumer.py
+  
+ Run following command to drop a few message to Kafka (You are free to do this repeatedly, which drops message to topic 'foo')
   - docker run -v /Users:/Users --net=confluent -v /Users:/work work-stn-kafka:v0.2 python /Users/nazeels/python_scripts/kafka-consumer.py
  
 
